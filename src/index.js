@@ -1,11 +1,22 @@
-import angular from 'angular';
+import 'angular';
 
-import angularMaterial from 'angular-material';
 import angularUIRouter from 'angular-ui-router';
+import angularMaterial from 'angular-material';
+import angularAnimate from 'angular-animate';
+
+import 'angular-material/angular-material.css';
+
+import home from './home/index.js';
 
 let app = angular.module('app', [
-  'angularMaterial',
-  'angularUIRouter'
+  angularMaterial,
+  angularAnimate,
+  angularUIRouter,
+  home
 ]);
+
+app.run(($log) => {
+  $log.info('demo running', angular.version.full);
+});
 
 export default app;
