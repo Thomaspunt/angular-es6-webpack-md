@@ -1,9 +1,16 @@
-var HomeController = function () {
-  function init() {
-    console.info('HomeController init');
-  }
+class HomeController {
+  constructor() {
+    'ngInject';
+    
+    var self = this;
+    
+    function init() {
+      self.items = ['home', 'bla'];
+      console.info('HomeController init');
+    }
 
-  init();
+    init();
+  }
 };
 
 

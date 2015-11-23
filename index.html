@@ -4,14 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   </head>
-  <body ng-strict-di ng-app="app" ng-controller="HomeController as home">
+  
+  <body ng-strict-di ng-app="app">
+    
     <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-      <md-button class="md-raised">Button</md-button>
-      <md-button class="md-raised md-primary">Primary</md-button>
-      <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
-      <md-button class="md-raised md-warn">Warn</md-button>
-      <div class="label">Raised</div>
+      <md-button class="md-raised" ui-sref="home">Home</md-button>
+      <md-button class="md-raised" ui-sref="profile">Profile</md-button>
     </section>
+
+    <section layout="row" layout-sm="column" layout-padding>
+      <div flex ui-view="main"></div>
+    </section>
+    
     <script src="dist/bundle.js"></script>
   </body>
 </html>

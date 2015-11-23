@@ -10,16 +10,23 @@ module.exports = {
     loaders: [
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'ngtemplate!html',
+        include: path.resolve(__dirname, 'src/')
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass?sourceMap',
+        include: path.resolve(__dirname, 'src/')
       },
       {
         test: /\.css$/,
-        loader: 'style!css!sass?sourceMap'
+        loader: 'style!css'
       },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'ng-annotate?add=true!babel'
+        loader: 'ng-annotate?add=true!babel',
+        include: path.resolve(__dirname, 'src/')
       } 
     ]
   },
