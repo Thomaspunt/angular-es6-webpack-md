@@ -60689,7 +60689,6 @@
 	var _homeConfig2 = _interopRequireDefault(_homeConfig);
 
 	var homeModule = angular.module('app.home', []);
-	var template = __webpack_require__(17);
 
 	homeModule.controller('HomeController', _homeController2['default']);
 	homeModule.config(_homeConfig2['default']);
@@ -60743,6 +60742,8 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
+	var template = __webpack_require__(17);
+
 	var HomeConfig = (function () {
 	  function HomeConfig() {
 	    _classCallCheck(this, HomeConfig);
@@ -60756,7 +60757,7 @@
 	        url: '/',
 	        views: {
 	          'main@': {
-	            templateUrl: __webpack_require__(17),
+	            templateUrl: template,
 	            controller: 'HomeController as home'
 	          }
 	        }
@@ -60795,23 +60796,14 @@
 
 	var _profileController2 = _interopRequireDefault(_profileController);
 
+	var _profileConfig = __webpack_require__(20);
+
+	var _profileConfig2 = _interopRequireDefault(_profileConfig);
+
 	var profileModule = angular.module('app.profile', []);
-	var template = __webpack_require__(20);
 
 	profileModule.controller('ProfileController', _profileController2['default']);
-
-	profileModule.config(["$stateProvider", function ($stateProvider) {
-	  $stateProvider.state('profile', {
-	    url: '/profile',
-	    views: {
-	      'main@': {
-	        templateUrl: template,
-	        controller: _profileController2['default'],
-	        controllerAs: 'profile'
-	      }
-	    }
-	  });
-	}]);
+	profileModule.config(_profileConfig2['default']);
 
 	exports['default'] = profileModule = profileModule.name;
 	module.exports = exports['default'];
@@ -60850,10 +60842,54 @@
 
 /***/ },
 /* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var template = __webpack_require__(21);
+
+	var ProfileConfig = (function () {
+	  function ProfileConfig() {
+	    _classCallCheck(this, ProfileConfig);
+	  }
+
+	  _createClass(ProfileConfig, null, [{
+	    key: 'route',
+	    value: ["$stateProvider", function route($stateProvider) {
+	      'ngInject';
+
+	      $stateProvider.state('profile', {
+	        url: '/profile',
+	        views: {
+	          'main@': {
+	            templateUrl: template,
+	            controller: 'ProfileController as profile'
+	          }
+	        }
+	      });
+	    }]
+	  }]);
+
+	  return ProfileConfig;
+	})();
+
+	exports['default'] = ProfileConfig.route;
+	module.exports = exports['default'];
+
+/***/ },
+/* 21 */
 /***/ function(module, exports) {
 
 	var path = '/home/tkrupers/webshop/src/profile/profile.html';
-	var html = "<h1 class=\"md-display-3\">Profile</h1>\n\n<div ng-cloak>\n  <md-content>\n    <md-tabs md-dynamic-height md-border-bottom>\n      <md-tab label=\"one\">\n        <md-content class=\"md-padding\">\n          <h1 class=\"md-display-2\">Tab</h1>\n          <p>Lorem ipsum</p>\n        </md-content>\n      </md-tab>\n      <md-tab label=\"two\">\n        <md-content class=\"md-padding\">\n          <h1 class=\"md-display-2\">Tab 2</h1>\n          <p>Lsadlkfasldfkm asdklfm asdl fm</p>\n        </md-content>\n      </md-tab>\n    </md-tabs>\n  </md-content>\n</div>\n";
+	var html = "<h1 class=\"md-display-3\">Profile</h1>\n\n<div ng-cloak>\n  <md-content>\n    <md-tabs md-dynamic-height md-border-bottom>\n      <md-tab label=\"one\">\n        <md-content class=\"md-padding\">\n          <h1 class=\"md-display-2\">Tab 1</h1>\n          <p>Lorem ipsum</p>\n        </md-content>\n      </md-tab>\n      <md-tab label=\"two\">\n        <md-content class=\"md-padding\">\n          <h1 class=\"md-display-2\">Tab 2</h1>\n          <p>Lsadlkfasldfkm asdklfm asdl fm</p>\n        </md-content>\n      </md-tab>\n    </md-tabs>\n  </md-content>\n</div>\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

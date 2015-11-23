@@ -1,3 +1,5 @@
+let template = require('./home.html');
+
 class HomeConfig {
 
   static route ($stateProvider) {
@@ -6,7 +8,7 @@ class HomeConfig {
       url: '/',
       views: {
         'main@': {
-          templateUrl: require('./home.html'),
+          templateUrl: template,
           controller: 'HomeController as home'
         }
       }
